@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1510063026 source:d:\c++\colorette\main.cpp
+	<iostream>
+	<ctime>
+	<stack>
+	<cstdlib>
+
