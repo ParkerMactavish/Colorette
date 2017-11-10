@@ -59,7 +59,7 @@ public:
 			score += (1 + tmp)*tmp / 2;
 		}
 		for (int i = 3; i<7; i++) {
-			int tmp = cards[sorted[i]];
+			int tmp = sorted[i];
 			score -= (1 + tmp)*tmp / 2;
 		}
 		score += cards[1] * 2;
@@ -316,7 +316,7 @@ int main()
 				//cout<<tmp1;
 				on_deck[i].print();
 			}
-			int cnt[9] = { 3, 10, 9, 9, 9, 9, 9, 9, 9 };
+			int cnt[9] = { 3, 10, 9, 9, 9, 9, 9, 9, 9};
 			srand(time(NULL));
 			if (player_num>3) {
 				for (int i = 0; i<player_num; i++) {
@@ -340,7 +340,7 @@ int main()
 			if (player_num>3) {
 				for (int i = 0; i<76 - player_num; i++) {
 					int tmp = rand() % 9;
-					while (cnt[tmp] == 0) {
+					while (cnt[tmp] <= 0) {
 						tmp = rand() % 9;
 					}
 					deck.push(tmp);
@@ -350,13 +350,19 @@ int main()
 			else if (player_num == 3) {
 				for (int i = 0; i<64; i++) {
 					int tmp = rand() % 8;
-					while (cnt[tmp] == 0) {
+					while (cnt[tmp] <= 0) {
 						tmp = rand() % 8;
 					}
 					deck.push(tmp);
 					cnt[tmp]--;
 				}
 			}
+			/*int tmp = deck.size();
+			for (int i = 0; i<tmp; i++) {
+			cout << deck.top() << '\t';
+			if ((i % 10) == 0)cout << endl;
+			deck.pop();
+			}*/
 			state_code++;
 		}
 		if (state_code == 3) {//gaming stage start from here
