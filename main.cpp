@@ -222,7 +222,7 @@ void draw_card(on_table_deck on_deck[], int& state_code, stack<int>& main_deck, 
 	//cout << 1;
 	int deck_num;
 	char raw_input[20];
-	if (main_deck.size() == 15) {
+	if (main_deck.size() <= 15) {
 		end_game = true;
 		cout << "The game will end after this round" << endl;
 	}
@@ -494,8 +494,9 @@ int main()
 			state_code = 4;
 			break;
 		case 51:
-			cout << "Sorry, the range should be in 1~3" << endl;
+			cout << "Sorry, the range should be in 1~"<<player_num << endl;
 			state_code = 5;
+			break;
 		case 52:
 			cout << "The deck is full. Choose another one please~" << endl;
 			state_code = 5;
