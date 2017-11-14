@@ -152,7 +152,7 @@ void AI_processing(Player players[], on_table_deck on_deck[], int cur_player, in
 	vector< vector <int> > oppo_card(player_num - 1, vector<int>());
 	vector<int> take_deck_expectation(player_num, 0);
 	bool is_all_taken = true;
-	int take_expectation = 0, ai_state = state;
+	int take_expectation = 0;
 	for (int i = 0; i<player_num - 1; i++) oppo_card[i] = players[(cur_player + i) % player_num].all_cards();
 	if (state == 1) {
 		for (int i = 0; i<player_num; i++) {
